@@ -18,10 +18,15 @@ session_start();
                         $id= $row['userId'];
                             if($usertype == 'user'){
                                 $_SESSION['username']=$row['username'];
-                                 $_SESSION['userId']=$id;
+                                $_SESSION['userId']=$id;   
 
                                     echo '<script>location.href="user/index.php?role='.$usertype.'";</script>';
 
+                            }else if($usertype == 'superadmin'){
+                                $_SESSION['username']=$row['username'];
+                                $_SESSION['userId']=$id;   
+
+                                    echo '<script>location.href="admin/SuperAdminIndex.php?role='.$usertype.'";</script>';
                             }else{
 
                                 $_SESSION['username']=$row['username'];

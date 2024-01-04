@@ -46,7 +46,7 @@
 
                         <?php 
                         
-                        $sql = "SELECT * FROM tbl_court WHERE isActive = 1";
+                        $sql = "SELECT * FROM tbl_court WHERE isActive = 1 AND userId = '$userId'";
                         $result = $connect->query($sql);
 
                         if(!empty($result)){

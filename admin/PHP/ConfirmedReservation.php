@@ -1,7 +1,6 @@
 <?php 
 include('../../actions/connect_db.php');
 
-
 if(isset($_POST['ConfirmedReservationBtn'])){
 
     $courtReservationId = $_POST['courtReservationId'];
@@ -9,7 +8,7 @@ if(isset($_POST['ConfirmedReservationBtn'])){
     $description = 'Your reservation has been approved!';
     $userId = $_POST['userId'];
 
-    $sql = "UPDATE tbl_court_reservation SET status = 'Confirmed' WHERE courtReservationId = '$courtReservationId'";
+    $sql = "UPDATE tbl_court_reservation SET status = 'Pending Payment' WHERE courtReservationId = '$courtReservationId'";
 
     if($connect->query($sql) === TRUE){
 
@@ -22,6 +21,5 @@ if(isset($_POST['ConfirmedReservationBtn'])){
     }
 
 }
-
 
 ?>

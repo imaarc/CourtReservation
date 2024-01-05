@@ -47,7 +47,19 @@
 
                         <?php 
                         
-                        $sql = "SELECT * FROM tbl_court INNER JOIN tbl_court_reservation ON tbl_court.courtId = tbl_court_reservation.courtId INNER JOIN tbl_user_details ON tbl_court_reservation.userId = tbl_user_details.userId WHERE tbl_court.userId = '$userId'";
+                        $sql = "SELECT tbl_court_reservation.*,tbl_court.*,tbl_user_details.*,
+
+                        DATE_FORMAT(MIN(STR_TO_DATE(SUBSTRING_INDEX(tbl_date_and_time.time, '-', 1), '%l:%i%p')), '%l:%i%p') AS start_time,
+                        DATE_FORMAT(MAX(STR_TO_DATE(SUBSTRING_INDEX(tbl_date_and_time.time, '-', -1), '%l:%i%p')), '%l:%i%p') AS end_time,
+                        tbl_date_and_time.date
+
+                        FROM tbl_court
+                    
+                        INNER JOIN tbl_court_reservation ON tbl_court.courtId = tbl_court_reservation.courtId 
+                        INNER JOIN tbl_user_details ON tbl_court_reservation.userId = tbl_user_details.userId 
+                        INNER JOIN tbl_date_and_time ON tbl_date_and_time.courtReservationId = tbl_court_reservation.courtReservationId
+                        
+                        WHERE tbl_court.userId = '$userId' GROUP BY tbl_date_and_time.date,tbl_date_and_time.courtReservationId";
                         $result = $connect->query($sql);
 
                         if(!empty($result)){
@@ -78,16 +90,24 @@
                                                 </div><!--//app-card-body-->
                                                 <div class="app-card-footer p-4 mt-auto">
                                                 <div class="intro">Renter's Name: <?php echo $row['fullName'] ?></div>
-                                                <div class="intro mt-2">Renter's Contact: <?php echo $row['contactNumber'] ?></div>
+                                                <div class="intro mt-2">Renter's Contact: <?php echo $row['courtReservationId'] ?></div>
                                                 <div class="intro mt-2">Renter's Email: <?php echo $row['emailAddress'] ?></div>
+                                                <div class="intro mt-2">Reservation Date: <?php echo $row['date'] ?></div>
+                                                <div class="intro mt-2">Start Time: <?php echo $row['start_time'] ?> - End Time : <?php echo $row['end_time'] ?></div>
+                                                <div class="intro mt-2">Payment: <?php echo $row['payment'] ?> </div>
                                                 <hr>
                                                 <?php 
                                                 
-                                                if($row['status'] == 'Confirmed'){
+                                                if($row['status'] == 'Pending Payment'){
                                                     ?>
-                                                        <div class="intro"><span style="color: green;">Rented Ongoing</span></div>
+                                                        <div class="intro"><span class="mr-auto" style="color: green;"><?php echo $row['status'] ?></span></div>
+                                                        
                                                     <?php
-                                                }else{
+                                                }else if($row['status'] == 'Completed'){
+                                                    ?>
+                                                        <div class="intro"><span style="color: green;"><?php echo $row['status'] ?></span></div>
+                                                    <?php
+                                                }else if($row['status'] == 'Pending'){
                                                     ?>
                                                         <button class="ConfirmedBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#ConfirmedModal" UserID ="<?php echo $row['userId'] ?>" value="<?php echo $row['courtReservationId'] ?>">Confirm Reservation</button>
                                                         <button class="DeclinedBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#DeclinedModal" UserID ="<?php echo $row['userId'] ?>" value="<?php echo $row['courtReservationId'] ?>">Declined Reservation</button>

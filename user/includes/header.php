@@ -17,14 +17,17 @@
     <body>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+            
             <div class="container px-5">
                 <a class="navbar-brand" href="index.php">Court Reservation</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Courts</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Appointments</a></li>
+                        <li class="nav-item"><a class="nav-link" href="courts.php">Courts</a></li>
+                        <li class="nav-item"><a class="nav-link" href="appointments.php">Appointments</a></li>
+                        <li class="nav-item ms-5"><a class="nav-link active" href="#!"><img src="../images/userLogo.png" width="25px"> <?=$user?></a></li>
+                        <li class="nav-item "><a class="nav-link " href="../actions/logout.php?logout">Logout</a></li>
                     </ul>
                 </div>
             </div>

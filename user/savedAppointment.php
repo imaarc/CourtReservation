@@ -5,8 +5,9 @@
 	$userId = $_POST['userId'];
 	$selectDate = $_POST['selectDate'];
 	$selectTime = $_POST['selectTime'];
+	$totalPayment = $_POST['totalPayment'];
 
-	$sqlInsert = "INSERT INTO tbl_court_reservation( courtId, userId, status) VALUES ('$courtId', '$userId',  'Pending')";
+	$sqlInsert = "INSERT INTO tbl_court_reservation( courtId, userId,totalPayment, status) VALUES ('$courtId', '$userId','$totalPayment',  'Pending Reservation')";
 	$query = mysqli_query($connect, $sqlInsert);
 
 	$selectId = "SELECT * FROM tbl_court_reservation where isActive = 1 ORDER BY courtReservationId DESC LIMIT 1 ";

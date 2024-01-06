@@ -94,7 +94,21 @@
                                                 <div class="intro mt-2">Renter's Email: <?php echo $row['emailAddress'] ?></div>
                                                 <div class="intro mt-2">Reservation Date: <?php echo $row['date'] ?></div>
                                                 <div class="intro mt-2">Start Time: <?php echo $row['start_time'] ?> - End Time : <?php echo $row['end_time'] ?></div>
-                                                <div class="intro mt-2">Payment: <?php echo $row['payment'] ?> </div>
+                                                <div class="intro mt-2">Payment: P <?php echo $row['payment'] ?>.00 / P <?=$row['totalPayment']?>.00 
+                                                    <?php 
+                                                    $payment = $row['payment']*1;
+                                                    $totalPayment = $row['totalPayment']*1;
+
+                                                    if ($payment == 0) {
+                                                        echo "<span class='badge bg-danger'>Not Paid</span>";
+                                                    }else if ($totalPayment == $payment){
+                                                        echo "<span class='badge bg-success'>Paid</span>";
+                                                    }else if($totalPayment > $payment && $payment != 0){
+                                                        echo "<span class='badge bg-warning'>Partial</span>";
+                                                    }
+                                                    ?>
+                                                    
+                                                </div>
                                                 <hr>
                                                 <?php 
                                                 

@@ -131,6 +131,7 @@ $totalHours = (int) explode(":", $totalTime)[0];
 								<input type="hidden" name="courtId" value="<?=$courtId?>">
 								<input type="hidden" name="userId" value="<?=$userId?>">
 								<input type="hidden" name="selectDate" value="<?=$selectDate?>">
+								<input type="hidden" name="totalPayment" value="<?=$totalPayment?>">
 
 								<?php foreach ($selectedTimes as $time): ?>
 							        <input type="hidden" name="selectTime[]" value="<?=$time?>">

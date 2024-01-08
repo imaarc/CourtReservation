@@ -66,7 +66,7 @@
                                 <h2 class="card-title"><?=$row['courtName']?></h2>
                                 <div class="d-flex justify-content-between">
                                      <p class="card-text"><i><?=$row['courtType']?></i></p>
-                                     <p class="card-text"><i class="fa-sharp fa-solid fa-location-dot me-2" style="color: #dc3545;"></i></i><?=$row['courtLocation']?></p>
+                                     <p class="card-text"><i class="fa-sharp fa-solid fa-location-dot me-2" style="color: #dc3545;"></i><?=$row['courtLocation']?></p>
                                 </div>
                                     
                                 <p class="card-text"><?=$row['courtDetails']?></p>

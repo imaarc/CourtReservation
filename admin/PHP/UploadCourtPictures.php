@@ -2,7 +2,7 @@
 
 include('../../actions/connect_db.php');
 
-if(isset($_POST['UploadPictures'])){
+
     if(isset($_FILES["images"]["name"])){
         $uploadFolder = "../uploaded_pics/";
 
@@ -24,12 +24,14 @@ if(isset($_POST['UploadPictures'])){
             // Insert file information into the database
             $sqlUpload = "INSERT INTO tbl_image_uploaded (userId,id,filename,isActive) VALUES ('$userId','$courtId','$fileName',1)";
             $connect->query($sqlUpload);
+
+            header("location: ../CourtManagement.php");
     
         }
 
         header("Location:../CourtManagement.php?SuccessPicture=1");
     
     }
-}
+
 
 ?>

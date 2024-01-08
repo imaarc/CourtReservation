@@ -38,6 +38,18 @@
                     }
                 }
 
+                if(isset($_GET['SuccessPicture'])){
+                    $SuccessPicture = $_GET['SuccessPicture'];
+
+                    if($SuccessPicture == 1){
+                        ?>
+                            <div class="alert alert-primary" role="alert">
+                            Court Pictures Uploaded Successfully!
+                            </div>
+                        <?php
+                    }
+                }
+
                 ?>
 			   
                 <div class="tab-content" id="orders-table-tab-content">

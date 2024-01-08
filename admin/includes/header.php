@@ -5,6 +5,7 @@
 <head>
    <title>CourtSync</title>
     <link rel="icon" href="../images/balls.png" type="image/x-icon">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <!-- Meta -->
     <meta charset="utf-8">
@@ -142,7 +143,7 @@
 			            <div class="app-utility-item app-user-dropdown dropdown">
 				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="assets/images/user.png" alt="user profile"></a>
 				            <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
-								<li><a class="dropdown-item" href="account.html">Account</a></li>
+								<li><a class="dropdown-item" href="Account.php">Account</a></li>
 								<li><a class="dropdown-item" href="settings.html">Settings</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="Logout.php">Log Out</a></li>

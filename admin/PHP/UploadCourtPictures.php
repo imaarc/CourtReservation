@@ -26,6 +26,8 @@ if(isset($_POST['UploadPictures'])){
             $connect->query($sqlUpload);
     
         }
+
+        header("Location:../CourtManagement.php?SuccessPicture=1");
     
     }
 }

@@ -206,6 +206,11 @@
                 </div>
 
                 <div class="email mb-3">
+                    <label class="sr-only" for="signup-email">Rates</label>
+                    <input id="courtRatesQuery" name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required">
+                </div>
+
+                <div class="email mb-3">
                     <label class="sr-only" for="signup-email">Location</label>
                     <input id="courtLocationQuery" name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required">
                 </div>
@@ -277,16 +282,16 @@
 
                 <div class="email mb-3">
                     <label class="sr-only" for="signup-email">Venue name</label>
-                    <input id="courtNameQueryDetails" name="courtName" type="text" class="form-control signup-name" placeholder="Venue name" required="required">
+                    <input id="courtNameQueryDetails" name="courtName" type="text" class="form-control signup-name" placeholder="Venue name" required="required" disabled>
                 </div>
 
                 <div class="email mb-3 form-floating">
-                    <textarea name="courtDetails" id="courtDetailsQueryDetails" type="text" class="form-control" placeholder="Description"></textarea>
+                    <textarea name="courtDetails" id="courtDetailsQueryDetails" type="text" class="form-control" placeholder="Description" disabled></textarea>
                     <label class="sr-only" for="description">Description</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <select class="form-select" id="courtTypeQueryDetails" aria-label="Floating label select example" name="courtType">
+                    <select class="form-select" id="courtTypeQueryDetails" aria-label="Floating label select example" name="courtType" disabled>
                     <option value="Basketball">Basketball</option>
                     <option value="Tennis">Tennis</option>
                     <option value="Volleyball">Volleyball</option>
@@ -299,17 +304,22 @@
 
                 <div class="email mb-3">
                     <label class="sr-only" for="signup-email">Location</label>
-                    <input id="courtLocationQueryDetails" name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required">
+                    <input id="courtRatesDetails" name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required" disabled>
+                </div>
+
+                <div class="email mb-3">
+                    <label class="sr-only" for="signup-email">Location</label>
+                    <input id="courtLocationQueryDetails" name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required" disabled>
                 </div>
 
                 <div class="email mb-3">
                     <label class="sr-only" for="signup-email">Contact No.</label>
-                    <input id="courtContactQueryDetails" name="courtContact" type="number" class="form-control signup-name" placeholder="Contact No." required="required">
+                    <input id="courtContactQueryDetails" name="courtContact" type="number" class="form-control signup-name" placeholder="Contact No." required="required" disabled>
                 </div>
 
                 <div class="email mb-3">
                     <label class="sr-only" for="signup-email">Email Address</label>
-                    <input id="courtEmailQueryDetails" name="courtEmail" type="email" class="form-control signup-name" placeholder="Email Address" required="required">
+                    <input id="courtEmailQueryDetails" name="courtEmail" type="email" class="form-control signup-name" placeholder="Email Address" required="required" disabled>
                 </div>
 
                 <hr>
@@ -373,6 +383,7 @@
                     }else if(res.status == 200){
 
                         $('#CourtIDManageEdit').val(res.data.courtId);
+                        $('#courtRatesQuery').val(res.data.courtRates);
                         $('#courtNameQuery').val(res.data.courtName);
                         $('#courtDetailsQuery').val(res.data.courtDetails);
                         $('#courtTypeQuery').val(res.data.courtType);
@@ -409,6 +420,7 @@
                 }else if(res.status == 200){
 
                     $('#CourtIDManageEdit').val(res.data.courtId);
+                    $('#courtRatesDetails').val(res.data.courtRates);
                     $('#courtNameQueryDetails').val(res.data.courtName);
                     $('#courtDetailsQueryDetails').val(res.data.courtDetails);
                     $('#courtTypeQueryDetails').val(res.data.courtType);

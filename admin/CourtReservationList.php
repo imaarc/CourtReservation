@@ -121,7 +121,7 @@
                                                     ?>
                                                         <div class="intro"><span style="color: green;"><?php echo $row['status'] ?></span></div>
                                                     <?php
-                                                }else if($row['status'] == 'Pending'){
+                                                }else if($row['status'] == 'Pending Reservation'){
                                                     ?>
                                                         <button class="ConfirmedBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#ConfirmedModal" UserID ="<?php echo $row['userId'] ?>" value="<?php echo $row['courtReservationId'] ?>">Confirm Reservation</button>
                                                         <button class="DeclinedBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#DeclinedModal" UserID ="<?php echo $row['userId'] ?>" value="<?php echo $row['courtReservationId'] ?>">Declined Reservation</button>

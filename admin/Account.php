@@ -16,14 +16,42 @@
 
                     <?php 
                     
-                    if(isset($_GET['SuccessUpdate'])){
+                    if(isset($_GET['WrongCurrent'])){
 
-                        $SuccessUpdate = $_GET['SuccessUpdate'];
+                        $WrongCurrent = $_GET['WrongCurrent'];
 
-                        if($SuccessUpdate == 1){
+                        if($WrongCurrent == 1){
+                            ?>
+                                <div class="alert alert-danger" role="alert">
+                                Wrong Confirmation or Current Password
+                                </div>
+                            <?php
+                        }
+
+                    }
+
+                    if(isset($_GET['WrongConfirm'])){
+
+                        $WrongConfirm = $_GET['WrongConfirm'];
+
+                        if($WrongConfirm == 1){
+                            ?>
+                                <div class="alert alert-danger" role="alert">
+                                    Wrong Confirmation or Current Password
+                                </div>
+                            <?php
+                        }
+
+                    }
+
+                    if(isset($_GET['PasswordSuccess'])){
+
+                        $PasswordSuccess = $_GET['PasswordSuccess'];
+
+                        if($PasswordSuccess == 1){
                             ?>
                                 <div class="alert alert-success" role="alert">
-                                    Updated Profile!
+                                   Password Succesfully Updated!
                                 </div>
                             <?php
                         }
@@ -36,7 +64,7 @@
 
                             <?php 
                             
-                            $sql = "SELECT * FROM tbl_user INNER JOIN tbl_user_details ON tbl_user.userId = tbl_user_details.userId WHERE tbl_user.userId = '$userId'";
+                            $sql = "SELECT * FROM tbl_user WHERE tbl_user.userId = '$userId'";
                             $result = $connect->query($sql);
 
                             if(!empty($result)){
@@ -51,32 +79,47 @@
                                             <div class="item border-bottom py-3">
                                                 <div class="row justify-content-between align-items-center">
                                                     <div class="col-auto">
-                                                        <div class="item-label"><strong>Name</strong></div>
-                                                        <div class="item-data"><?php echo $row['fullName'] ?></div>
+                                                        <div class="item-label"><strong>Username</strong></div>
+                                                        <div class="item-data"><?php echo $row['username'] ?></div>
                                                     </div><!--//col-->
                                                 </div><!--//row-->
                                             </div><!--//item-->
                                             <div class="item border-bottom py-3">
                                                 <div class="row justify-content-between align-items-center">
                                                     <div class="col-auto">
-                                                        <div class="item-label"><strong>Address</strong></div>
-                                                        <div class="item-data"><?php echo $row['address'] ?></div>
+                                                        <div class="item-label"><strong>Role</strong></div>
+                                                        <div class="item-data"><?php echo $row['role'] ?></div>
                                                     </div><!--//col-->
                                                 </div><!--//row-->
                                             </div><!--//item-->
                                             <div class="item border-bottom py-3">
                                                 <div class="row justify-content-between align-items-center">
                                                     <div class="col-auto">
-                                                        <div class="item-label"><strong>Contact Number</strong></div>
-                                                        <div class="item-data"><?php echo $row['contactNumber'] ?></div>
+                                                        <div class="item-label"><strong>Verified</strong></div>
+                                                        <div class="item-data">
+                                                            
+                                                        <?php if($row['isVerified'] == 1){
+                                                            ?>
+                                                            Verified Account
+                                                            <?php
+
+                                                        }else{
+                                                            ?>
+                                                            Not Verified Account
+                                                            <?php
+                                                        }
+
+                                                        ?>
+                                                        
+                                                        </div>
                                                     </div><!--//col-->
                                                 </div><!--//row-->
                                             </div><!--//item-->
                                             <div class="item border-bottom py-3">
                                                 <div class="row justify-content-between align-items-center">
                                                     <div class="col-auto">
-                                                        <div class="item-label"><strong>Email</strong></div>
-                                                        <div class="item-data"><?php echo $row['emailAddress'] ?></div>
+                                                        <div class="item-label"><strong>Date Registration</strong></div>
+                                                        <div class="item-data"><?php echo $row['dateAdded'] ?></div>
                                                     </div><!--//col-->
                                                 </div><!--//row-->
                                             </div><!--//item-->
@@ -106,36 +149,31 @@
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
             </div>
-            <form action="PHP/UpdateProfile.php" method="POST">
+            <form action="PHP/ChangePassword.php" method="POST">
             <div class="modal-body">
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Full Name</label>
-                    <input id="FullName" name="fullName" type="text" class="form-control signup-name" placeholder="Venue name" required="required">
+                    <label class="sr-only" for="signup-email">Current Password</label>
+                    <input name="currentPassword" type="text" class="form-control " placeholder="Current Password" required="required">
                 </div>
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Address</label>
-                    <input id="address" name="address" type="text" class="form-control signup-name" placeholder="Location" required="required">
+                    <label class="sr-only" for="signup-email">New Password</label>
+                    <input name="NewPassword" type="text" class="form-control " placeholder="New Password" required="required">
                 </div>
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Contact No.</label>
-                    <input id="contactNumber" name="contactNumber" type="number" class="form-control signup-name" placeholder="Contact No." required="required">
+                    <label class="sr-only" for="signup-email">Confirm Password</label>
+                    <input name="ConfirmPassword" type="text" class="form-control " placeholder="Confirm Password" required="required">
                 </div>
 
-                <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Email Address</label>
-                    <input id="emailAddress" name="emailAddress" type="email" class="form-control signup-name" placeholder="Email Address" required="required">
-                </div>
-
-                <input type="hidden" name="userId" id="userIDManageProfile">
+                <input type="hidden" name="userId" value="<?php echo $userId ?>">
             </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="UpdateButtonProfile" class="btn btn-primary">Save changes</button>
+                    <button type="submit" name="ChangePasswordBtn" class="btn btn-primary">Save changes</button>
                 </div>
             </form>
             </div>
@@ -148,40 +186,7 @@
 
     <!-- JQUERY -->
 
-    <!-- MANAGE BUTTON JQUERY -->
-    <script>
 
-    $(document).on('click', '.ManageBtn', function(){
-
-        var userId = $(this).val();
-
-        $.ajax({
-
-            type: "GET",
-            url: "PHP/GetProfileDetails.php?userID=" + userId,
-            success: function (response) {
-
-                var res = jQuery.parseJSON(response);
-                if(res.status == 422) {
-
-                    alert(res.message);
-                }else if(res.status == 200){
-
-                    $('#userIDManageProfile').val(res.data.userId);
-                    $('#FullName').val(res.data.fullName);
-                    $('#address').val(res.data.address);
-                    $('#contactNumber').val(res.data.contactNumber);
-                    $('#emailAddress').val(res.data.emailAddress);
-                    $('#ManageCourtModal').modal('show');
-                        
-                }
-            }
-
-        });
-
-    });
-
-    </script>
 
     <?php include('includes/bootstrapCDN.php') ?>
     <?php include('includes/footer.php') ?>

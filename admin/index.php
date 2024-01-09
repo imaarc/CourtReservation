@@ -17,7 +17,7 @@
 
   								<?php 
 								
-								$sqlMonthlySales = "SELECT SUM(payment) as SumPayments FROM tbl_court_reservation INNER JOIN tbl_court on tbl_court.courtId = tbl_court_reservation.courtId WHERE tbl_court.userId = '$userId' AND MONTH(tbl_court_reservation.dateAdded) = MONTH(NOW())";
+								$sqlMonthlySales = "SELECT SUM(totalPayment) as SumPayments FROM tbl_court_reservation INNER JOIN tbl_court on tbl_court.courtId = tbl_court_reservation.courtId WHERE tbl_court.userId = '$userId' AND MONTH(tbl_court_reservation.dateAdded) = MONTH(NOW())";
 								$result = $connect->query($sqlMonthlySales);
 
 								if(!empty($result)){
@@ -92,7 +92,7 @@
 				
 				$SqlChartMonthlySales = "SELECT 
 				MONTHNAME(tbl_court_reservation.dateAdded) as monthname, 
-				SUM(payment) as MonthlySales 
+				SUM(totalPayment) as MonthlySales 
 				FROM 
 					tbl_court_reservation 
 				INNER JOIN 

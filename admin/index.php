@@ -108,6 +108,8 @@
 
 					$amount[] = $data['MonthlySales'];
 				}
+
+				
 				
 				?>
 

@@ -58,7 +58,7 @@ if (isset($_GET['id'])) {
                     
                     <p><?=$fetch['courtDetails']?></p>
                     <div class="d-flex justify-content-between">
-                    	<p class="card-text"><i class="fa-sharp fa-solid fa-location-dot me-2" style="color: #dc3545;"></i></i><?=$fetch['courtLocation']?></p>
+                    	<p class="card-text"><i class="fa-sharp fa-solid fa-location-dot me-2" style="color: #dc3545;"></i><?=$fetch['courtLocation']?></p>
                     	<p><i class="fa-solid fa-envelope me-2" style="color: #dc3545;"></i> <?=$fetch['courtEmail']?> </p>
                         <p><i class="fa-solid fa-address-book me-2" style="color: #dc3545;"></i> <?=$fetch['courtContact']?> </p>
                     </div>
@@ -66,6 +66,22 @@ if (isset($_GET['id'])) {
                     	 <a class="btn btn-danger " href="courtAppointmentv2.php?courtId=<?=$courtId?>">BOOK AN APPOINTMENT</a>
                     </div>
                 </div>
+
+                <hr>
+
+                <h2>Feedbacks</h2>
+
+                <?php
+                	$sql1 = "SELECT * FROM tbl_feedback tf join tbl_user tu on tf.userId = tu.userId where tf.courtId = '$courtId' ";
+                	$query1 = mysqli_query($connect, $sql1);
+
+                	while($row = $query1->fetch_assoc()){ ?>
+
+                		<h4> <?=$row['username'] ?></h4>
+                		<p> <i><?=$row['feedback'] ?></i> </p>
+
+                	<?php }
+                ?>
             </div>
 
 <?php include "includes/footer.php" ?>

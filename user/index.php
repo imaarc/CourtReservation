@@ -85,4 +85,28 @@
         </div>
 
         <?php include 'includes/footer.php' ?>
+
+        <script>
+              $(document).ready(function() {
+
+
+                $("#venueCategory").on("change", function() {
+                  var category = $(this).val();
+
+                  $.ajax({
+                    url:'filterCategory.php',
+                    type:'POST',
+                    data:{
+                        category:category,
+                    },
+                    success:function(response){
+                      //alert(response);
+                        $('.courtList').html(response);
+                            
+                        }
+                    });
+                });
+            });
+
+        </script>
         

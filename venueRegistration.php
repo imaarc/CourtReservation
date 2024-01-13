@@ -55,7 +55,7 @@
 								<label class="sr-only" for="description">Description</label>
 							</div>
 
-							<div class="form-floating mb-3">
+							<!-- <div class="form-floating mb-3">
 							  <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="type">
 							    <option value="Basketball">Basketball</option>
 							    <option value="Tennis">Tennis</option>
@@ -65,7 +65,34 @@
 							    <option value="Golf">Golf</option>
 							  </select>
 							  <label for="floatingSelect">Type</label>
-							</div>
+							</div> -->
+							<label>Type</label><br>
+							<label>
+								<input type="checkbox" class="form-check-input" name="type[]" value="Basketball">
+								Basketball
+							</label><br>
+							<label>
+								<input type="checkbox" class="form-check-input" name="type[]" value="Tennis">
+								Tennis
+							</label><br>
+							<label>
+								<input type="checkbox" class="form-check-input" name="type[]" value="Volleyball">
+								Volleyball
+							</label><br>
+							<label>
+								<input type="checkbox" class="form-check-input" name="type[]" value="Badminton">
+								Badminton
+							</label><br>
+							<label>
+								<input type="checkbox" class="form-check-input" name="type[]" value="Soccer">
+								Soccer
+							</label><br>
+							<label>
+								<input type="checkbox" class="form-check-input" name="type[]" value="Golf">
+								Golf
+							</label><br>
+							<br>
+							
 
 							<div class="email mb-3">
 								<label class="sr-only" for="signup-email">Location</label>

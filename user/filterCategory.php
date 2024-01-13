@@ -3,7 +3,7 @@
 
 	$category = $_POST['category'];
 
-	$select = "SELECT * FROM tbl_court where isActive = 1 and courtType = '$category' ";
+	$select = "SELECT * FROM tbl_court WHERE isActive = 1 AND REPLACE(courtType, ' ', '') LIKE '%$category%';";
      $query = mysqli_query($connect, $select);
 
             while ( $row = $query->fetch_assoc()) { 

@@ -15,6 +15,8 @@
 	$contactNo = $_POST['contactNo'];
 	$emailAd = $_POST['emailAd'];
 
+	$typeFinal = implode(', ', $type);
+
 	
 
 	$sql = "INSERT INTO tbl_user( username, password, role) VALUES ('$username','$password','venue') ";
@@ -28,7 +30,7 @@
 
 
 		$insertDetails = "INSERT INTO tbl_court( userId, courtName, courtDetails, courtType, courtLocation, courtContact, courtEmail) 
-							VALUES ('$userId','$name','$description','$type', '$location','$contactNo','$emailAd')";
+							VALUES ('$userId','$name','$description','$typeFinal', '$location','$contactNo','$emailAd')";
 
 		$queryDetailsInsert = mysqli_query($connect, $insertDetails);
 		if ($queryDetailsInsert) {

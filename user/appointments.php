@@ -22,6 +22,8 @@
 	while($row = $query->fetch_assoc()){ 
 		$totalPayment = $row['totalPayment']*1;
 		$payment = $row['payment']*1;
+		$status = $row['status'];
+
 		?>
 		
 		<div class="col-md-12 mb-5 ">
@@ -66,16 +68,25 @@
                                 
                             </div>
 
+
+
                             <div class="d-flex justify-content-end">
                            
 	                            <?php
-	                            if ($payment == 0) { ?>
-	                              <a href="#" class='btn btn-primary  my-2 mx-2 '>Proceed to payment</a>
-	                           <?php }else if ($totalPayment == $payment){ ?>
-	                              <a href="#" class='btn btn-secondary  my-2 mx-2'>Appointment Details</a>
-	                            <?php }else if($totalPayment > $payment && $payment != 0){ ?>
-	                                <a href="#" class='btn btn-primary text-white mx-2 my-2'>Proceed to payment</a>
-	                            <?php } ?>
+	                            if ($payment == 0) { 
+	                            if ($status == 'Pending Reservation') { ?>
+	                             	<a href="#" class='btn btn-secondary text-white mx-2 my-2' disabled>Pending Reservation</a>
+	                            	 <a href="appointmentDetails.php?courtId=<?=$row['courtId']?>&courtReservationId=<?=$row['courtReservationId']?>&userId=<?=$userId?>" class='btn btn-primary  my-2 mx-2 '>Proceed to payment</a>
+	                          <?php } ?>
+	                              
+	                           <?php }else if ($payment >= $totalPayment){ ?>
+	                           		 <?php if ($status == 'Success Appointment'){ ?>
+									<a href="feedback.php?courtId=<?=$row['courtId']?>&courtReservationId=<?=$row['courtReservationId']?>&userId=<?=$userId?>" class='btn btn-warning text-white my-2 mx-2 '>Give a feedback</a>
+									<?php }else{ ?>
+	                            	<a href="appointmentDetails.php?courtId=<?=$row['courtId']?>&courtReservationId=<?=$row['courtReservationId']?>&userId=<?=$userId?>" class='btn btn-success  my-2 mx-2'>Appointment Details</a>
+	                            <?php } }else if($totalPayment > $payment && $payment != 0){ ?>
+								<a href="appointmentDetails.php?courtId=<?=$row['courtId']?>&courtReservationId=<?=$row['courtReservationId']?>&userId=<?=$userId?>" class='btn btn-success  my-2 mx-2'>Appointment Details</a>
+	                           <?php } ?>
 
                              </div>
                             

@@ -40,6 +40,19 @@
                         }
 
                     }
+
+                    if(isset($_GET['SuccessAppointment'])){
+                        $SuccessAppointment = $_GET['SuccessAppointment'];
+
+                        if($SuccessAppointment == 1){
+                            ?>
+                                <div class="alert alert-success" role="alert">
+                                    Success Appointment!
+                                </div>
+                            <?php
+                        }
+
+                    }
                     
                     ?>
 
@@ -126,6 +139,10 @@
                                                         <button class="ConfirmedBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#ConfirmedModal" UserID ="<?php echo $row['userId'] ?>" value="<?php echo $row['courtReservationId'] ?>">Confirm Reservation</button>
                                                         <button class="DeclinedBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#DeclinedModal" UserID ="<?php echo $row['userId'] ?>" value="<?php echo $row['courtReservationId'] ?>">Declined Reservation</button>
                                                     <?php
+                                                }else if($row['status'] == 'Fully Paid'){
+                                                    ?>
+                                                        <button class="ConfirmedBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#SuccessModal" UserID ="<?php echo $row['userId'] ?>" value="<?php echo $row['courtReservationId'] ?>">Success Appointment</button>
+                                                    <?php
                                                 }
                                                 
                                                 ?>
@@ -163,6 +180,29 @@
                 <input type="hidden" value="<?php echo $userId ?>" name="userId">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" name="ConfirmedReservationBtn" class="btn btn-primary">Yes</button>
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="modal fade" id="SuccessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;">Are you sure is this a Success Appointment?</h5>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <form action="PHP/SuccessAppointment.php" method="POST">
+                <input type="hidden" class="CourtReservationID" name="courtReservationId">
+                <input type="hidden" class="UserID" name="customerId">
+                <input type="hidden" value="<?php echo $userId ?>" name="userId">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" name="SuccessAppointmentBtn" class="btn btn-primary">Yes</button>
                 </form>
             </div>
             </div>

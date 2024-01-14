@@ -64,7 +64,7 @@
                         if(!empty($result)){
                             foreach($result as $row){
                                 ?>
-                                    <div class="col-12 col-lg-4">
+                                    <div class="col-12 col-lg-5">
                                         <div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
                                             <div class="app-card-header p-3 border-bottom-0">
                                                 <div class="row align-items-center gx-3">
@@ -78,18 +78,19 @@
                                                         
                                                     </div><!--//col-->
                                                     <div class="col-auto">
-                                                        <h4 class="app-card-title"><?php echo $row['courtName'] ?></h4>
+                                                        <h4 class="app-card-title"><?php echo $row['courtName'] ?></h4> 
                                                     </div><!--//col-->
                                                 </div><!--//row-->
                                             </div><!--//app-card-header-->
                                             <div class="app-card-body px-4">
                                                 
-                                                <div class="intro"><?php echo $row['courtDetails'] ?>, Location: <?php echo $row['courtLocation'] ?></div>
+                                            <div class="intro"><?php echo $row['courtDetails'] ?>, Location: <?php echo $row['courtLocation'] ?></div>
                                             </div><!--//app-card-body-->
                                             <div class="app-card-footer p-4 mt-auto">
-                                            <button class="ManageBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#ManageCourtModal" value="<?php echo $row['courtId'] ?>">Manage Court</button>
-                                            <button class="UploadPicsBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#uploadPicsModal" value="<?php echo $row['courtId'] ?>">Upload Pics</button>
-                                            <button class="ViewDetailsBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target=".ViewDetailsModal" value="<?php echo $row['courtId'] ?>">View Details</button>
+                                                <button class="ManageBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#ManageCourtModal" value="<?php echo $row['courtId'] ?>">Manage Court</button>
+                                                <button class="UploadPicsBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#uploadPicsModal" value="<?php echo $row['courtId'] ?>">Upload Pics</button>
+                                                <button class="ViewDetailsBtn btn app-btn-secondary" data-bs-toggle="modal" data-bs-target=".ViewDetailsModal" value="<?php echo $row['courtId'] ?>">View Details</button>
+                                                <a href="Feedback.php?courtId=<?php echo $row['courtId'] ?>" class="btn app-btn-secondary btn-sm">Feedback</a>
                                             </div><!--//app-card-footer-->
                                         </div><!--//app-card-->
                                     </div><!--//col-->

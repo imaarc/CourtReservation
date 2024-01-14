@@ -102,6 +102,11 @@
                 </div>
 
                 <div class="email mb-3">
+                    <label class="sr-only" for="signup-email">Rates</label>
+                    <input id="courtRates" disabled name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required">
+                </div>
+
+                <div class="email mb-3">
                     <label class="sr-only" for="signup-email">Location</label>
                     <input id="courtLocationQueryDetails" name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required" disabled>
                 </div>
@@ -164,6 +169,7 @@
                 }else if(res.status == 200){
 
                     $('#CourtIDManageEdit').val(res.data.courtId);
+                    $('#courtRates').val(res.data.courtRates);
                     $('#courtNameQueryDetails').val(res.data.courtName);
                     $('#courtDetailsQueryDetails').val(res.data.courtDetails);
                     $('#courtTypeQueryDetails').val(res.data.courtType);

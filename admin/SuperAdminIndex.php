@@ -15,17 +15,14 @@
 
   								<?php 
 								
-								$sqlMonthlySales = "SELECT SUM(totalPayment) as SumPayments 
-								FROM tbl_court_reservation 
-								INNER JOIN tbl_court on tbl_court.courtId = tbl_court_reservation.courtId 
-								WHERE tbl_court.userId = '$userId' 
-								AND YEAR(tbl_court_reservation.dateAdded) = YEAR(NOW());";
+								$sqlMonthlySales = "SELECT
+								COUNT(userId) as Users FROM tbl_user WHERE role = 'user' ";
 								$result = $connect->query($sqlMonthlySales);
 
 								if(!empty($result)){
 									foreach($result as $row){
 										?>
-											<div class="stats-figure"><?php echo $row['SumPayments'] ?></div>
+											<div class="stats-figure"><?php echo $row['Users'] ?></div>
 										<?php
 									}
 								}
@@ -44,13 +41,14 @@
 
 								<?php 
 								
-								$sqlMonthlySales = "SELECT COUNT(courtReservationId) as TotalReserved FROM tbl_court_reservation INNER JOIN tbl_court on tbl_court.courtId = tbl_court_reservation.courtId WHERE tbl_court.userId = '$userId' AND MONTH(tbl_court_reservation.dateAdded) = MONTH(NOW())";
+								$sqlMonthlySales = "SELECT
+								COUNT(courtId) as Courts FROM tbl_court";
 								$result = $connect->query($sqlMonthlySales);
 
 								if(!empty($result)){
 									foreach($result as $row){
 										?>
-											<div class="stats-figure"><?php echo $row['TotalReserved'] ?></div>
+											<div class="stats-figure"><?php echo $row['Courts'] ?></div>
 										<?php
 									}
 								}
@@ -110,7 +108,7 @@
 	
 	<script>
 
-	const labels = ['Users','Venues'];
+	const labels = ['Users','Venue Partners'];
 	const data = {
 	labels: labels,
 	datasets: [{

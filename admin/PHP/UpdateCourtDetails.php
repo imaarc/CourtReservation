@@ -10,8 +10,9 @@ if(isset($_POST['UpdateButtonCourtDetails'])){
     $courtContact = $_POST['courtContact'];
     $courtEmail = $_POST['courtEmail'];
     $courtId = $_POST['courtId'];
+    $courtRates = $_POST['courtRates'];
 
-    $sql = "UPDATE tbl_court SET courtName = '$courtName', courtDetails = '$courtDetails', courtType = '$courtType', courtLocation = '$courtLocation', courtContact = '$courtContact', courtEmail = '$courtEmail' WHERE courtId = '$courtId'";
+    $sql = "UPDATE tbl_court SET courtName = '$courtName', courtDetails = '$courtDetails', courtType = '$courtType', courtLocation = '$courtLocation', courtContact = '$courtContact', courtEmail = '$courtEmail', courtRates = '$courtRates' WHERE courtId = '$courtId'";
 
     if($connect->query($sql) === TRUE){
         header("Location: ../CourtManagement.php?updatesuccess=1");

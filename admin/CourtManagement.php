@@ -185,17 +185,19 @@
             <div class="modal-body">
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Venue name</label>
+                    <label for="">Venue Name</label>
                     <input id="courtNameQuery" name="courtName" type="text" class="form-control signup-name" placeholder="Venue name" required="required">
                 </div>
 
-                <div class="email mb-3 form-floating">
+                <div class="email mb-3">
+                    <label for="">Description</label>
                     <textarea name="courtDetails" id="courtDetailsQuery" type="text" class="form-control" placeholder="Description"></textarea>
                     <label class="sr-only" for="description">Description</label>
                 </div>
 
-                <div class="form-floating mb-3">
-                    <select class="form-select" id="courtTypeQuery" aria-label="Floating label select example" name="courtType">
+                <div class=" mb-3">
+                    <label for="">Court Type</label>
+                    <select class="form-select" id="courtTypeQuery"  name="courtType">
                     <option value="Basketball">Basketball</option>
                     <option value="Tennis">Tennis</option>
                     <option value="Volleyball">Volleyball</option>
@@ -203,26 +205,25 @@
                     <option value="Soccer">Soccer</option>
                     <option value="Golf">Golf</option>
                     </select>
-                    <label for="floatingSelect">Type</label>
                 </div>
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Rates</label>
-                    <input id="courtRatesQuery" name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required">
+                    <label for="">Rates</label>
+                    <input id="courtRatesQuery" name="courtRates" type="text" class="form-control signup-name" placeholder="Location" required="required">
                 </div>
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Location</label>
+                    <label for="">Location</label>
                     <input id="courtLocationQuery" name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required">
                 </div>
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Contact No.</label>
+                    <label for="">Contact No.</label>
                     <input id="courtContactQuery" name="courtContact" type="number" class="form-control signup-name" placeholder="Contact No." required="required">
                 </div>
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Email Address</label>
+                    <label for="">Email</label>
                     <input id="courtEmailQuery" name="courtEmail" type="email" class="form-control signup-name" placeholder="Email Address" required="required">
                 </div>
 
@@ -282,16 +283,18 @@
             <div class="modal-body">
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Venue name</label>
+                    <label for="">Venue Name</label>
                     <input id="courtNameQueryDetails" name="courtName" type="text" class="form-control signup-name" placeholder="Venue name" required="required" disabled>
                 </div>
 
-                <div class="email mb-3 form-floating">
+                <div class="email mb-3">
+                    <label for="">Description</label>
                     <textarea name="courtDetails" id="courtDetailsQueryDetails" type="text" class="form-control" placeholder="Description" disabled></textarea>
                     <label class="sr-only" for="description">Description</label>
                 </div>
 
-                <div class="form-floating mb-3">
+                <div class=" mb-3">
+                    <label for="">Court Type</label>
                     <select class="form-select" id="courtTypeQueryDetails" aria-label="Floating label select example" name="courtType" disabled>
                     <option value="Basketball">Basketball</option>
                     <option value="Tennis">Tennis</option>
@@ -300,26 +303,25 @@
                     <option value="Soccer">Soccer</option>
                     <option value="Golf">Golf</option>
                     </select>
-                    <label for="floatingSelect">Type</label>
                 </div>
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Location</label>
+                    <label for="">Rates</label>
                     <input id="courtRatesDetails" name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required" disabled>
                 </div>
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Location</label>
+                    <label for="">Location</label>
                     <input id="courtLocationQueryDetails" name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required" disabled>
                 </div>
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Contact No.</label>
+                    <label for="">Contact No.</label>
                     <input id="courtContactQueryDetails" name="courtContact" type="number" class="form-control signup-name" placeholder="Contact No." required="required" disabled>
                 </div>
 
                 <div class="email mb-3">
-                    <label class="sr-only" for="signup-email">Email Address</label>
+                    <label for="">Email Address</label>
                     <input id="courtEmailQueryDetails" name="courtEmail" type="email" class="form-control signup-name" placeholder="Email Address" required="required" disabled>
                 </div>
 

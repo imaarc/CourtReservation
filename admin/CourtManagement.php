@@ -144,7 +144,12 @@
 
                     <div class="email mb-3">
                         <label class="sr-only" for="signup-email">Location</label>
-                        <input id="signup-name" name="courtLocation" type="text" class="form-control signup-name" placeholder="Location" required="required">
+                        <input id="signup-name" name="courtRates" type="text" class="form-control signup-name" placeholder="Rates" required="required">
+                    </div>
+
+                    <div class="email mb-3">
+                        <label class="sr-only" for="signup-email">Location</label>
+                        <input id="signup-name" name="courtLocation" type="text" class="form-control signup-name" placeholder="Court Location" required="required">
                     </div>
 
                     <div class="email mb-3">

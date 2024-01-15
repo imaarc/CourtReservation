@@ -108,6 +108,7 @@
                                                 <div class="intro mt-2">Reservation Date: <?php echo $row['date'] ?></div>
                                                 <div class="intro mt-2">Start Time: <?php echo $row['start_time'] ?> - End Time : <?php echo $row['end_time'] ?></div>
                                                 <div class="intro mt-2">Payment: P <?php echo $row['payment'] ?>.00 / P <?=$row['totalPayment']?>.00 
+
                                                     <?php 
                                                     $payment = $row['payment']*1;
                                                     $totalPayment = $row['totalPayment']*1;
@@ -122,7 +123,19 @@
                                                     ?>
                                                     
                                                 </div>
+                                                
                                                 <hr>
+
+                                                <?php 
+                                                
+                                                if($row['status'] == 'Success Appointment'){
+                                                    ?>
+                                                        <div class="intro mt-2" style="color: green;">Success Appointment!</div>
+                                                    <?php
+                                                }
+                                                
+                                                ?>
+
                                                 <?php 
                                                 
                                                 if($row['status'] == 'Pending Payment'){

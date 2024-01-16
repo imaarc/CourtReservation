@@ -7,15 +7,20 @@
 	$amountToBePaid = $_POST['amountToBePaid'];
 	$gcashName = $_POST['gcashName'];
 	$gcashNumber = $_POST['gcashNumber'];
+    $image = $_POST['image'];
 
 
 
 	$extension=array('jpeg','jpg','png','gif');
+
     foreach ($_FILES['image']['tmp_name'] as $key => $value) {
+
         $filename=$_FILES['image']['name'][$key];
         $filename_tmp=$_FILES['image']['tmp_name'][$key];
         echo '<br>';
         $ext=pathinfo($filename,PATHINFO_EXTENSION);
+
+      
 
         $finalimg='';
         if(in_array($ext,$extension))
@@ -30,11 +35,15 @@
                  $newfilename=$filename.time().".".$ext;
                  move_uploaded_file($filename_tmp, 'images/'.$newfilename);
                  $finalimg=$newfilename;
+
+
             }
             //insert
 
             $insertpp = "INSERT INTO tbl_receipt( userId, courtReservationId, file, gcashName, gcashNumber) VALUES ('$userId','$courtReservationId','$finalimg','$gcashName','$gcashNumber') ";
              mysqli_query($connect, $insertpp);
+
+             echo $insertpp;
 
         }
     }

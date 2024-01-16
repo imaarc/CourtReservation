@@ -112,7 +112,7 @@
                                 	<hr>
                                 	<h4>Payment Form</h4>
 
-                                <form enctype="multipart/form-data " class="w-50 mx-auto" action="savePayment.php" method="POST">
+                                <form  class="w-50 mx-auto" action="savePayment.php" method="POST" enctype="multipart/form-data">
                                 	<input type="hidden" name="courtReservationId" value="<?=$courtReservationId?>">
                                 	<input type="hidden" name="userId" value="<?=$userId?>">
                                 	<div class="d-flex justify-content-center">
@@ -142,12 +142,12 @@
                                 	<div class="mt-3">
                                 		<label>Upload Receipt</label>
                                 		<div class="input-group mb-3">
-										  <label class="input-group-text" for="inputGroupFile01" name="image[]">Upload</label>
-										  <input type="file" class="form-control" id="inputGroupFile01">
+										  <label class="input-group-text" for="inputGroupFile01" >Upload</label>
+										  <input type="file" class="form-control" id="inputGroupFile01" name="image[]">
 										</div>
                                 	</div>
 
-                                	<button class="w-100 btn btn-primary">Save Payment</button>
+                                	<button class="w-100 btn btn-primary" type="submit" >Save Payment</button>
                                 </form>
                                 <?php }
                                 ?>

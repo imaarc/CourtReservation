@@ -130,7 +130,7 @@
                                                 
                                                 if($row['status'] == 'Success Appointment'){
                                                     ?>
-                                                        <div class="intro mt-2" style="color: green;">Success Appointment!</div>
+                                                        <div class="intro mt-2" style="color: green;">Success Appointment! <button class="ViewReceiptClass btn btn-primary btn-sm" style="margin-left: 50px;" data-toggle="modal" data-target=".ViewReceipt" value="<?php echo $row['courtReservationId'] ?>">View Receipt</button></div>
                                                     <?php
                                                 }
                                                 
@@ -246,6 +246,49 @@
         </div>
     </div>
 
+    <div>
+        <div class="ViewReceipt modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Receipt Details</h5>
+                </div>
+                <div class="modal-body">
+
+                    <div>
+                        <label for="">Image Receipt:</label><br>
+                        <img src="" alt="" style="height: 250px; width:100%;" id="file">
+                    </div><br>
+
+
+                    <div>
+                        <label for="">Gcash Name:</label>
+                        <input type="text" class="form-control" id="gcashName" disabled>
+                    </div><br>
+
+                    <div>
+                        <label for="">Gcash Number:</label>
+                        <input type="text" class="form-control" id="gcashNumber" disabled>
+                    </div><br>
+
+                    
+                    <div>
+                        <label for="">Date:</label>
+                        <input type="text" class="form-control" id="dateAdded" disabled>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="DownloadImage btn btn-primary">Download Receipt</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- MODALS -->
 
     <script>
@@ -274,6 +317,72 @@
 
             });
         });
+    </script>
+
+    <script>
+
+    $(document).on('click', '.ViewReceiptClass', function(){
+
+        var courtReservationId = $(this).val();
+
+        $.ajax({
+
+            type: "GET",
+            url: "PHP/ViewReceiptDetails.php?courtReservationId=" + courtReservationId,
+            success: function (response) {
+
+                var res = jQuery.parseJSON(response);
+                if(res.status == 422) {
+
+                    alert(res.message);
+                }else if(res.status == 200){
+
+                    var imagePath = '../user/images/' + res.data.file;
+
+                    $('#gcashName').val(res.data.gcashName);
+                    $('#gcashNumber').val(res.data.gcashNumber);
+                    $('#dateAdded').val(res.data.dateAdded);
+                    // Set image source
+                    $('#file').attr('src', imagePath);
+                    $('#file').data('download-url', imagePath);
+                        
+                }
+            }
+
+        });
+
+        // Attach a click event to the "Download Receipt" button
+        $(document).on('click', '.DownloadImage', function() {
+            // Get the image URL from the data attribute
+            var downloadUrl = $('#file').data('download-url');
+
+            // Check if the download URL is available
+            if (downloadUrl) {
+                // Create a temporary anchor element
+                var downloadLink = document.createElement('a');
+                
+                // Set the href attribute to the image URL
+                downloadLink.href = downloadUrl;
+
+                // Set the download attribute to specify the default file name
+                downloadLink.download = 'receipt_image.jpg';
+
+                // Append the anchor element to the body
+                document.body.appendChild(downloadLink);
+
+                // Trigger a click event on the anchor element
+                downloadLink.click();
+
+                // Remove the anchor element from the body
+                document.body.removeChild(downloadLink);
+            } else {
+                // Handle the case where the download URL is not available
+                alert('Image not available for download.');
+            }
+        });
+
+    });
+
     </script>
 
 

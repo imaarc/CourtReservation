@@ -10,10 +10,11 @@
 
 	$name = $_POST['name'];
 	$description = $_POST['description'];
-	$type = $_POST['type'];
+	
 	$location = $_POST['location'];
 	$contactNo = $_POST['contactNo'];
 	$emailAd = $_POST['emailAd'];
+	$type = $_POST['type'];
 
 	$typeFinal = implode(', ', $type);
 

@@ -72,7 +72,7 @@
                         INNER JOIN tbl_user_details ON tbl_court_reservation.userId = tbl_user_details.userId 
                         INNER JOIN tbl_date_and_time ON tbl_date_and_time.courtReservationId = tbl_court_reservation.courtReservationId
                         
-                        WHERE tbl_court.userId = '$userId' GROUP BY tbl_date_and_time.date,tbl_date_and_time.courtReservationId";
+                        WHERE tbl_court.userId = '$userId' and tbl_court_reservation.isActive = 1 GROUP BY tbl_date_and_time.date,tbl_date_and_time.courtReservationId";
                         $result = $connect->query($sql);
 
                         if(!empty($result)){
@@ -130,7 +130,7 @@
                                                 
                                                 if($row['status'] == 'Success Appointment'){
                                                     ?>
-                                                        <div class="intro mt-2" style="color: green;">Success Appointment! <button class="ViewReceiptClass btn btn-primary btn-sm" style="margin-left: 50px;" data-toggle="modal" data-target=".ViewReceipt" value="<?php echo $row['courtReservationId'] ?>">View Receipt</button></div>
+                                                        <div class="intro mt-2" style="color: green;">Success Appointment! <button class="ViewReceiptClass btn btn-primary btn-sm text-white" style="margin-left: 50px;" data-toggle="modal" data-target=".ViewReceipt" value="<?php echo $row['courtReservationId'] ?>">View Receipt</button></div>
                                                     <?php
                                                 }
                                                 
@@ -192,7 +192,7 @@
                 <input type="hidden" class="UserID" name="customerId">
                 <input type="hidden" value="<?php echo $userId ?>" name="userId">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="ConfirmedReservationBtn" class="btn btn-primary">Yes</button>
+                <button type="submit" name="ConfirmedReservationBtn" class="btn btn-primary text-white">Yes</button>
                 </form>
             </div>
             </div>
@@ -215,7 +215,7 @@
                 <input type="hidden" class="UserID" name="customerId">
                 <input type="hidden" value="<?php echo $userId ?>" name="userId">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="SuccessAppointmentBtn" class="btn btn-primary">Yes</button>
+                <button type="submit" name="SuccessAppointmentBtn" class="btn btn-primary text-white">Yes</button>
                 </form>
             </div>
             </div>
@@ -238,7 +238,7 @@
                 <input type="hidden" class="UserID" name="customerId">
                 <input type="hidden" value="<?php echo $userId ?>" name="userId">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="DeclinedReservationBtn" class="btn btn-primary">Yes</button>
+                <button type="submit" name="DeclinedReservationBtn" class="btn btn-primary text-white">Yes</button>
                 </form>
             </div>
             </div>
@@ -257,7 +257,7 @@
 
                     <div>
                         <label for="">Image Receipt:</label><br>
-                        <img src="" alt="" style="height: 250px; width:100%;" id="file">
+                        <img src="" alt="" style=" width:100%;" id="file">
                     </div><br>
 
 
@@ -282,7 +282,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="DownloadImage btn btn-primary">Download Receipt</button>
+                    <button type="button" class="DownloadImage btn btn-primary text-white">Download Receipt</button>
                 </div>
                 </div>
             </div>

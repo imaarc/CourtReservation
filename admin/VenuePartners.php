@@ -36,7 +36,7 @@
                                             <td><?php echo $row['address'] ?></td>
                                             <td><?php echo $row['contactNumber'] ?></td>
                                             <td><?php echo $row['emailAddress'] ?></td>
-                                            <td><a href="Venues.php?userId=<?php echo $row['userId'] ?>" class="btn btn-info btn-sm">View Venues</a></td>
+                                            <td><a href="Venues.php?userId=<?php echo $row['userId'] ?>" class="btn btn-info btn-sm text-white">View Venues</a></td>
                                         </tr>
                                         <?php
                                     }

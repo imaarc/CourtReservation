@@ -16,7 +16,7 @@
                 <div class="col-auto">
                     <h1 class="app-page-title mb-0">Feedbacks</h1> <hr>
                     <!-- Add a link to view all feedbacks without the limit -->
-                    <a href="?courtId=<?php echo $courtId; ?>&viewAll=1" class="btn btn-primary btn-sm">View All</a>
+                    <a href="?courtId=<?php echo $courtId; ?>&viewAll=1" class="btn btn-primary btn-sm text-white">View All</a>
                 </div>
             </div><!--//row-->
 
@@ -30,16 +30,16 @@
                     if(!empty($result)){
                         foreach($result as $row){
                             ?>
-                                <div class="col-md-5 m-5 card my-5">
-                                    <p class="mt-3">Fullname: <strong><span><?php echo $row['fullName'] ?></span></strong>   </p>
-                                    <p class="mt-3">Address: <strong> <?php echo $row['address'] ?></strong> </p>
-                                    <p class="mt-3">Contact Number: <strong><?php echo $row['contactNumber'] ?></strong>  </p>
-                                    <p class="mt-3">Email Address: <strong><?php echo $row['emailAddress'] ?></strong>  </p>
+                                <div class="col-md-5 m-5 card my-5 p-3">
+                                    <p class="m-0 p-0">Fullname: <strong><span><?php echo $row['fullName'] ?></span></strong>   </p>
+                                    <p class="m-0 p-0">Address: <strong> <?php echo $row['address'] ?></strong> </p>
+                                    <p class="m-0 p-0">Contact Number: <strong><?php echo $row['contactNumber'] ?></strong>  </p>
+                                    <p class="m-0 p-0">Email Address: <strong><?php echo $row['emailAddress'] ?></strong>  </p>
 
-                                    <div class="my-5">
+                                    <div class="my-3">
                                         <strong><p>Feedback</p></strong>
                                         <div class="">
-                                            <textarea class="form-control" disabled   style="height: 200px; width:500px;text-align:left;">
+                                            <textarea class="form-control" disabled   style="height: 200px;">
                                             <?php echo $row['feedback'] ?></textarea>
                                         </div>
                                     </div>

@@ -8,7 +8,7 @@
 			    <div class="row g-3 mb-4 align-items-center justify-content-between">
 				    <div class="col-auto">
 			            <h1 class="app-page-title mb-0">Court Management</h1> 
-                        <button type="button" class="btn btn-sm btn-success mt-3" data-toggle="modal" data-target="#AddCourtModal">Add Court</button>
+                        <button type="button" class="btn btn-sm btn-success mt-3 text-white" data-toggle="modal" data-target="#AddCourtModal">Add Court</button>
 				    </div>
 			    </div><!--//row-->
                 
@@ -130,20 +130,31 @@
                         <label class="sr-only" for="description">Description</label>
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="courtType">
-                        <option value="Basketball">Basketball</option>
-                        <option value="Tennis">Tennis</option>
-                        <option value="Volleyball">Volleyball</option>
-                        <option value="Badminton">Badminton</option>
-                        <option value="Soccer">Soccer</option>
-                        <option value="Golf">Golf</option>
-                        </select>
-                        <label for="floatingSelect">Type</label>
-                    </div>
+                                                <label>Type</label><br>
+                            <label>
+                                <input type="checkbox" class="form-check-input" name="type[]" value="Basketball">
+                                Basketball
+                            </label><br>
+                            <label>
+                                <input type="checkbox" class="form-check-input" name="type[]" value="Tennis">
+                                Tennis
+                            </label><br>
+                            <label>
+                                <input type="checkbox" class="form-check-input" name="type[]" value="Volleyball">
+                                Volleyball
+                            </label><br>
+                            <label>
+                                <input type="checkbox" class="form-check-input" name="type[]" value="Badminton">
+                                Badminton
+                            </label><br>
+                            <label>
+                                <input type="checkbox" class="form-check-input" name="type[]" value="Soccer">
+                                Soccer
+                            </label><br>
+                            <br>
 
                     <div class="email mb-3">
-                        <label class="sr-only" for="signup-email">Location</label>
+                        <label class="sr-only" for="signup-email">Rates</label>
                         <input id="signup-name" name="courtRates" type="text" class="form-control signup-name" placeholder="Rates" required="required">
                     </div>
 
@@ -167,7 +178,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" name="SubmitAdditionalCourt" class="btn btn-primary">Submit Data</button>
+                    <button type="submit" name="SubmitAdditionalCourt" class="btn btn-primary text-white">Submit Data</button>
                 </div>
 
             </form>
@@ -214,7 +225,7 @@
 
                 <div class="email mb-3">
                     <label for="">Rates</label>
-                    <input id="courtRatesQuery" name="courtRates" type="text" class="form-control signup-name" placeholder="Location" required="required">
+                    <input id="courtRatesQuery" name="courtRates" type="text" class="form-control signup-name" placeholder="Rates" required="required">
                 </div>
 
                 <div class="email mb-3">
@@ -236,7 +247,7 @@
             </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="UpdateButtonCourtDetails" class="btn btn-primary">Save changes</button>
+                    <button type="submit" name="UpdateButtonCourtDetails" class="btn btn-primary text-white">Save changes</button>
                 </div>
             </form>
             </div>
@@ -266,7 +277,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="" class="btn btn-primary">Upload Picture</button>
+                <button type="submit" name="" class="btn btn-primary text-white">Upload Picture</button>
             </div>
             </div>
             </form>
@@ -297,7 +308,7 @@
                     <textarea name="courtDetails" id="courtDetailsQueryDetails" type="text" class="form-control" placeholder="Description" disabled></textarea>
                     <label class="sr-only" for="description">Description</label>
                 </div>
-
+ 
                 <div class=" mb-3">
                     <label for="">Court Type</label>
                     <select class="form-select" id="courtTypeQueryDetails" aria-label="Floating label select example" name="courtType" disabled>

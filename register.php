@@ -21,19 +21,20 @@
 
 </head> 
 
-<body class="app app-signup p-0">    	
-    <div class="row g-0 app-auth-wrapper">
-	    <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
-		    <div class="d-flex flex-column align-content-end">
-			    <div class="app-auth-body mx-auto">	
-				    <div class="app-auth-branding mb-4"><a class="app-logo" href="#"><img class="logo-icon me-2" src="images/balls.png" alt="logo" style="width:200px;height: 200px;"></a></div>
-					<h2 class="auth-heading text-center mb-4">Create new account</h2>	
+<body class="app app-login p-0" style="background: url('images/bg.jpeg')!important;background-size: cover !important">     
 
-					<h2 class="auth-heading text-center mb-2">I am a </h2>
+    
+    <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <div class="card col-md-8 col-lg-6 col-sm-11 p-4">
+            <div class="card-body">
+               <div class="auth-form-container text-start mx-auto">
 
-					<hr>	
-
-					<div class="auth-form-container text-start mx-auto">
+               	<center>
+                        <div class="app-auth-branding mb-0">
+                            <a class="" href="#"><img class="logo-icon me-2 " src="images/balls.png" alt="logo" style="width:200px;height: 200px;"></a>
+                        </div>
+                    </center>
+                    <h2 class="auth-heading text-center p-0 mt-0 mb-4">CourtSync</h2>
 						
 							<div class="password mb-3">
 								<div class="d-flex justify-content-center">
@@ -45,23 +46,9 @@
 						
 						<div class="auth-option text-center pt-5"> Already have an account? <a class="text-link" href="index.php" >Log in</a></div>
 					</div><!--//auth-form-container-->	
-					
-					
-				    
-			    </div><!--//auth-body-->
-		    
-			  	
-		    </div><!--//flex-column-->   
-	    </div><!--//auth-main-col-->
-	    <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
-		    <div class="auth-background-holder" style="background: url('images/bg.jpeg')!important;background-size: cover !important">			    
-		    </div>
-		    <div class="auth-background-mask"></div>
-	    </div><!--//auth-background-col-->
-    
-    </div><!--//row-->
-
-
+            </div>
+        </div>
+    </div>
 </body>
 </html> 
 

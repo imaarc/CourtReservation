@@ -46,7 +46,6 @@
                 <option value="Volleyball">Volleyball</option>
                 <option value="Badminton">Badminton</option>
                 <option value="Soccer">Soccer</option>
-                <option value="Golf">Golf</option>
               </select>
               <label for="floatingSelect">Category</label>
             </div>
@@ -70,7 +69,7 @@
                                 </div>
                                     
                                 <p class="card-text"><?=$row['courtDetails']?></p>
-                                <p><i class="fa-solid fa-dollar-sign me-2" style="color: #dc3545;"> </i>P<?=$row['courtRates']?>.00/hr</p>
+                                <p><i class="fa-solid fa-peso-sign me-2" style="color: #dc3545;"></i> P<?=$row['courtRates']?>.00/hr</p>
                                 <p><i class="fa-solid fa-envelope me-2" style="color: #dc3545;"></i> <?=$row['courtEmail']?> </p>
                                 <p><i class="fa-solid fa-address-book me-2" style="color: #dc3545;"></i> <?=$row['courtContact']?> </p>
                                 

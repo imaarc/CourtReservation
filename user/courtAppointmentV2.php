@@ -29,7 +29,7 @@
  	$calendar = "<table class='table table-bordered'>";
  	$calendar.= "<center><h2 class='mb-5'>$monthName $year</h2>";
 
- 	$calendar.= "<a class='btn btn-danger me-2' href='?courtId=".$courtId."&month=".date('m', mktime(0,0,0, $month-1, 1,$year))."&year=".date('Y', mktime(0,0,0, $month-1, 1,$year)). "'>Previous Month </a> ";
+
 
  	 $calendar.= "<a class='btn btn-danger me-2' href='?courtId=".$courtId."&month=".date('m')."&year=".date('Y'). "'>Current Month </a> ";
 

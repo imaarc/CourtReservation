@@ -16,6 +16,7 @@
 			    JOIN tbl_date_and_time tdat ON tcr.courtReservationId = tdat.courtReservationId
 			WHERE
 			    tcr.userId = '$userId'
+			AND tcr.isActive = 1
 			GROUP BY
 			    tdat.date, tdat.courtReservationId";
 	$query = mysqli_query ($connect, $sql);
@@ -23,7 +24,7 @@
 		$totalPayment = $row['totalPayment']*1;
 		$payment = $row['payment']*1;
 		$status = $row['status'];
-
+ 
 		?>
 		
 		<div class="col-md-12 mb-5 ">
@@ -50,7 +51,7 @@
                                     
                                 <p class="card-text"><?=$row['courtDetails']?></p>
                                 <div class="d-flex justify-content-between">
-                                	<p><i class="fa-solid fa-dollar-sign me-2" style="color: #dc3545;"> </i>P<?=$row['courtRates']?>.00/hr</p>
+                                	<p><i class="fa-solid fa-peso-sign me-2" style="color: #dc3545;"></i> P<?=$row['courtRates']?>.00/hr</p>
 	                                <p><i class="fa-solid fa-envelope me-2" style="color: #dc3545;"></i> <?=$row['courtEmail']?> </p>
 	                                <p><i class="fa-solid fa-address-book me-2" style="color: #dc3545;"></i> <?=$row['courtContact']?> </p>
                                 </div>
@@ -76,8 +77,10 @@
 	                            if ($payment == 0) { 
 	                            if ($status == 'Pending Reservation') { ?>
 	                             	<a href="#" class='btn btn-secondary text-white mx-2 my-2' disabled>Pending Reservation</a>
-	                            	 <a href="appointmentDetails.php?courtId=<?=$row['courtId']?>&courtReservationId=<?=$row['courtReservationId']?>&userId=<?=$userId?>" class='btn btn-primary  my-2 mx-2 '>Proceed to payment</a>
-	                          <?php } ?>
+	                            	 <a href="cancelAppointment.php?courtReservationId=<?=$row['courtReservationId']?>" class='btn btn-primary  my-2 mx-2 '>Cancel Reservation</a>
+	                          <?php }else if($status == 'Pending Payment'){ ?>
+	                          		<a href="appointmentDetails.php?courtId=<?=$row['courtId']?>&courtReservationId=<?=$row['courtReservationId']?>&userId=<?=$userId?>" class='btn btn-primary  my-2 mx-2 '>Proceed to payment</a>
+	                         <?php } ?>
 	                              
 	                           <?php }else if ($payment >= $totalPayment){ ?>
 	                           		 <?php if ($status == 'Success Appointment'){ ?>

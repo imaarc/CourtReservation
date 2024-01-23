@@ -92,7 +92,7 @@
                                     
                                 <p class="card-text"><?=$fetch['courtDetails']?></p>
                                 <div class="d-flex justify-content-between">
-                                	<p><i class="fa-solid fa-dollar-sign me-2" style="color: #dc3545;"> </i>P<?=$fetch['courtRates']?>.00/hr</p>
+                                	<p><i class="fa-solid fa-peso-sign me-2" style="color: #dc3545;"></i> P<?=$fetch['courtRates']?>.00/hr</p>
 	                                <p><i class="fa-solid fa-envelope me-2" style="color: #dc3545;"></i> <?=$fetch['courtEmail']?> </p>
 	                                <p><i class="fa-solid fa-address-book me-2" style="color: #dc3545;"></i> <?=$fetch['courtContact']?> </p>
                                 </div>
@@ -126,17 +126,17 @@
 
                                 	<div class="mb-3">
 									  <label for="exampleFormControlInput1" class="form-label">Amount to be paid</label>
-									  <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="" name="amountToBePaid">
+									  <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="" name="amountToBePaid" required="required">
 									</div>
 
 									<div class="mb-3">
 									  <label for="exampleFormControlInput1" class="form-label">Gcash Name</label>
-									  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="gcashName">
+									  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="gcashName" required="required">
 									</div>
 
 									<div class="mb-3">
 									  <label for="exampleFormControlInput1" class="form-label">Gcash Number</label>
-									  <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="" name="gcashNumber">
+									  <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="" name="gcashNumber" required="required">
 									</div>
 
                                 	<div class="mt-3">

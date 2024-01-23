@@ -13,6 +13,7 @@
     
     <!-- Page Specific JS -->
     <script src="assets/js/app.js"></script> 
+    <script src="https://kit.fontawesome.com/a46e960981.js" crossorigin="anonymous"></script>
 
 </body>
 </html> 

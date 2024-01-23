@@ -53,7 +53,7 @@ if (isset($_GET['id'])) {
                     <h1 class="font-weight-light"> <?=$fetch['courtName']?> </h1>
                     <div class="d-flex justify-content-between">
                     	<p><i><?=$fetch['courtType']?></i></p>
-                    	<p><i class="fa-solid fa-dollar-sign me-2" style="color: #dc3545;"> </i>P<?=$fetch['courtRates']?>.00/hr</p>
+                    	<p><i class="fa-solid fa-peso-sign me-2" style="color: #dc3545;"></i>P<?=$fetch['courtRates']?>.00/hr</p>
                     </div>
                     
                     <p><?=$fetch['courtDetails']?></p>

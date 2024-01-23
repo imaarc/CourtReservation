@@ -21,19 +21,13 @@
 
 </head> 
 
-<body class="app app-login p-0" style="background: url('images/bg.jpeg')!important;background-size: cover !important">     
-
-    
-    <div class=" d-flex align-items-center justify-content-center" style="height: 100vh;">
-        <div class="card col-md-8 col-lg-3 col-sm-11 p-4">
-            <div class="card-body">
+<body class="app app-login p-0">        
+    <div class="row g-0 app-auth-wrapper">
+        <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
+            <div class="d-flex flex-column align-content-end">
                 <div class="app-auth-body mx-auto"> 
-                    <center>
-                        <div class="app-auth-branding mb-0">
-                            <a class="" href="#"><img class="logo-icon me-2 " src="images/balls.png" alt="logo" style="width:200px;height: 200px;"></a>
-                        </div>
-                    </center>
-                    <h2 class="auth-heading text-center mt-0 mb-3">CourtSync</h2>
+                    <div class="app-auth-branding mb-4"><a class="" href="#"><img class="logo-icon me-2" src="images/balls.png" alt="logo" style="width:200px;height: 200px;"></a></div>
+                    <h2 class="auth-heading text-center mb-5">CourtSync</h2>
                     <div class="auth-form-container text-start">
                         <form class="auth-form login-form" id="loginForm" action="actions/loginValidate.php" method="POST">         
                             <div class="email mb-3">
@@ -49,11 +43,6 @@
                                     </div><!--//col-6-->
                                 </div><!--//extra-->
                             </div><!--//form-group-->
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                                <label class="form-check-label" for="remember">Remember Me</label>
-                            </div>
-
                             <div class="text-center">
                                 <button type="submit" class="btn app-btn-secondary w-100 theme-btn mx-auto">Log In</button>
 
@@ -67,31 +56,23 @@
                     </div><!--//auth-form-container-->  
 
                 </div><!--//auth-body-->
-            </div>
-        </div>
-    </div>
- 
-   
+            
+                
+            </div><!--//flex-column-->   
+        </div><!--//auth-main-col-->
+        <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col" >
+            <div class="auth-background-holder" style="background: url('images/bg.jpeg')!important;background-size: cover !important">
 
+            </div>
+            <div class="auth-background-mask"></div>
+        </div><!--//auth-background-col-->
+    
+    </div><!--//row-->
 
     <script defer src="assets/js/jquery.min.js"></script>
     <script defer src="assets/js/jquery-ui.min.js"></script>
     <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
     <script defer src="assets/js/myJquery.js"></script>
-
-    <script>
-document.addEventListener("DOMContentLoaded", function() {
-    
-    var savedUsername = localStorage.getItem("savedUsername");
-    var savedPassword = localStorage.getItem("savedPassword");
-    if (savedUsername) {
-        document.getElementById("usernameLogin").value = savedUsername;
-    }
-    if (savedPassword) {
-        document.getElementById("pwdLogin").value = savedPassword;
-    }
-});
-</script>
 </body>
 </html> 
 

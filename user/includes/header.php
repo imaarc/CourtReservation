@@ -24,9 +24,16 @@
         }
     </style>
         <!-- Responsive navbar-->
+
+        <?php
+        $sql1 = "select * from tbl_user where userId = '$userId' ";
+        $quer = mysqli_query($connect, $sql1);
+        $fetch34 = $quer->fetch_assoc();
+        ?>
         <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
             
             <div class="container px-5">
+                <img src="../images/balls.png" width="60px" class="me-3">
                 <a class="navbar-brand" href="index.php">Court Reservation</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -34,7 +41,7 @@
                         <li class="nav-item" <?php if(basename($_SERVER['PHP_SELF']) == 'index.php') {echo 'id="activeNav"';}?> ><a class="nav-link" aria-current="page" href="index.php">Home</a></li>
                         <li class="nav-item" <?php if(basename($_SERVER['PHP_SELF']) == 'courts.php') {echo 'id="activeNav"';}?>><a class="nav-link" href="courts.php">Courts</a></li>
                         <li class="nav-item" <?php if(basename($_SERVER['PHP_SELF']) == 'appointments.php') {echo 'id="activeNav"';}?>><a class="nav-link" href="appointments.php">Appointments</a></li>
-                        <li class="nav-item ms-5"  ><a class="nav-link active" href="#!"><img src="../images/userLogo.png" width="25px"> <?=$user?></a></li>
+                        <li class="nav-item ms-5"  ><a class="nav-link active" href="#!"><img src="../actions/images/<?=$fetch34['filename']?>" width="25px"> <?=$user?></a></li>
                         <li class="nav-item " ><a class="nav-link " href="../actions/logout.php?logout">Logout</a></li>
                     </ul>
                 </div>

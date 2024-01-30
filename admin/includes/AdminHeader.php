@@ -76,7 +76,7 @@
 	        <div class="sidepanel-inner d-flex flex-column">
 		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
 		        <div class="app-branding">
-		            <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="../images/balls.png" alt="logo"><span class="logo-text">COURTSYNC</span></a>
+		            <a class="app-logo" href="index.html"><img class="logo-icon me-2 mb-3" src="../images/balls.png" alt="logo" style="width: 200px; height:100%"></a>
 	
 		        </div><!--//app-branding-->  
 		        

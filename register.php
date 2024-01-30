@@ -31,10 +31,9 @@
 
                	<center>
                         <div class="app-auth-branding mb-0">
-                            <a class="" href="#"><img class="logo-icon me-2 " src="images/balls.png" alt="logo" style="width:200px;height: 200px;"></a>
+                            <a class="" href="#"><img class="logo-icon me-2 m-5" src="images/balls.png" alt="logo" style="width:200px;height: ;"></a>
                         </div>
                     </center>
-                    <h2 class="auth-heading text-center p-0 mt-0 mb-4">CourtSync</h2>
 						
 							<div class="password mb-3">
 								<div class="d-flex justify-content-center">

@@ -18,10 +18,38 @@
 
 	$typeFinal = implode(', ', $type);
 
+	$extension=array('jpeg','jpg','png','gif');
+    foreach ($_FILES['image']['tmp_name'] as $key => $value) {
+        $filename=$_FILES['image']['name'][$key];
+        $filename_tmp=$_FILES['image']['tmp_name'][$key];
+        echo '<br>';
+        $ext=pathinfo($filename,PATHINFO_EXTENSION);
+
+        $finalimg='';
+        if(in_array($ext,$extension))
+        {
+            if(!file_exists('images/'.$filename))
+            {
+            move_uploaded_file($filename_tmp, 'images/'.$filename);
+            $finalimg=$filename;
+            }else
+            {
+                 $filename=str_replace('.','-',basename($filename,$ext));
+                 $newfilename=$filename.time().".".$ext;
+                 move_uploaded_file($filename_tmp, 'images/'.$newfilename);
+                 $finalimg=$newfilename;
+            }
+            //insert
+
+            $sql = "INSERT INTO tbl_user( username, password, role, filename) VALUES ('$username','$password','venue', '$finalimg') ";
+			$query = mysqli_query($connect, $sql);
+			
+		}
+	}
+     
+
 	
 
-	$sql = "INSERT INTO tbl_user( username, password, role) VALUES ('$username','$password','venue') ";
-	$query = mysqli_query($connect, $sql);
 
 	if ($query) {
 

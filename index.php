@@ -30,10 +30,9 @@
                 <div class="app-auth-body mx-auto"> 
                     <center>
                         <div class="app-auth-branding mb-0">
-                            <a class="" href="#"><img class="logo-icon me-2 " src="images/balls.png" alt="logo" style="width:200px;height: 200px;"></a>
+                            <a class="" href="#" ><img class="logo-icon me-2  m-4" src="images/balls.png" alt="logo" style="width:200px;height:"></a>
                         </div>
                     </center>
-                    <h2 class="auth-heading text-center mt-0 mb-3">CourtSync</h2>
                     <div class="auth-form-container text-start">
                         <form class="auth-form login-form" id="loginForm" action="actions/loginValidate.php" method="POST">         
                             <div class="email mb-3">

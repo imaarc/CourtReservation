@@ -26,6 +26,12 @@
 
 </head> 
 
+<?php
+        $sql1 = "select * from tbl_user where userId = '$userId' ";
+        $quer = mysqli_query($connect, $sql1);
+        $fetch34 = $quer->fetch_assoc();
+        ?>
+
 <body class="app">   	
     <header class="app-header fixed-top">	   	            
         <div class="app-header-inner">  
@@ -45,7 +51,7 @@
 		            
 		            <div class="app-utilities col-auto">
 			            <div class="app-utility-item app-user-dropdown dropdown">
-				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="assets/images/userdocs.jpg" alt="user profile"></a>
+				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="../actions/images/<?=$fetch34['filename']?>" alt="user profile"></a>
 				            <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
 								<li><a class="dropdown-item" href="Account.php">Account</a></li>
 								<!-- <li><a class="dropdown-item" href="settings.html">Settings</a></li> -->
@@ -66,8 +72,8 @@
 	        <div id="sidepanel-drop" class="sidepanel-drop"></div>
 	        <div class="sidepanel-inner d-flex flex-column">
 		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
-		        <div class="app-branding">
-		            <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="../images/balls.png" alt="logo"><span class="logo-text">COURTSYNC</span></a>
+		        <div class="app-branding mb-3">
+		            <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="../	images/balls.png" style="width:200px;height: 100%;" alt="logo"></a>
 	
 		        </div><!--//app-branding-->  
 		        

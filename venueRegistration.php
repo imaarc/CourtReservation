@@ -35,7 +35,7 @@
                 
                     <div class="auth-form-container text-start mx-auto">
                         
-                            <form class="auth-form auth-signup-form" action="actions/venueRegistrationAction.php" method="POST">     
+                            <form class="auth-form auth-signup-form" action="actions/venueRegistrationAction.php" method="POST" enctype="multipart/form-data">     
                             <h2 class="auth-heading text-center mb-2">Login Credentials</h2>
                             <hr>    
                             <div class="email mb-3">
@@ -45,6 +45,11 @@
                             <div class="email mb-3">
                                 <label class="sr-only" for="signup-email">Password</label>
                                 <input id="signup-email" name="password" type="password" class="form-control signup-email" placeholder="Password" required="required">
+                            </div>
+
+                            <div class="mb-3">
+                              <label for="formFile" class="form-label" >Profile Picture</label>
+                              <input class="form-control" type="file" id="formFile" name="image[]">
                             </div>
 
                             <h2 class="auth-heading text-center mb-2">Venue Details</h2>
